@@ -158,7 +158,7 @@ img {
   border-radius: 1.5em;
 }
 
-.restro-details-main-container {
+.restro-details-main-container, .offline-container {
   display: flex;
   flex-direction: column;
   justify-content: center;

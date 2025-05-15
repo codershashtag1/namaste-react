@@ -1,29 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-
-// https: //www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.262958&lng=73.17849&restaurantId=332614&catalog_qa=undefined&query=Biryani&submitAction=ENTER
+import usefetchRestroDetails from '../utils/useFetchRestroDetails';
 
 const RestroDetails = () => {
-  const [restaurantDetails, setRestaurantDetails] = useState([]);
   const { resId } = useParams();
-
-  useEffect(() => {
-    fetchRestroDetails();
-  }, []);
-
-  const fetchRestroDetails = async () => {
-    try {
-      const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.262958&lng=73.17849&restaurantId="+ resId + "&catalog_qa=undefined&query=Biryani&submitAction=ENTER")
-
-      const jsonData = await data.json();
-      console.log(jsonData?.data?.cards[2]?.card.card?.info);
-      setRestaurantDetails(jsonData?.data?.cards[2]?.card.card?.info);
-
-    } catch(err) {
-      console.log(err);
-    }
-  }
-
+  const restaurantDetails = usefetchRestroDetails(resId);
   const {
     id,
     name,

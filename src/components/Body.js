@@ -2,11 +2,13 @@ import RestroContainer from "./RestroContainer";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [resListData, setResListData] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData()
@@ -26,6 +28,14 @@ const Body = () => {
     }
   }
 
+
+  if(onlineStatus === false) {
+    return (
+      <div className="offline-container">
+        <h1>Looks like you are offline</h1>
+      </div>
+    )
+  }
 
   if(resListData?.length === 0) {
     return (
