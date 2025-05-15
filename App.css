@@ -108,7 +108,7 @@ body {
 
 .restro-container {
   display: grid;
-  aspect-ratio: 1 / 1.1;
+  aspect-ratio: 1 / 1.2;
 }
 
 .restro-container > * {
@@ -142,6 +142,37 @@ img {
   padding: 0 20px 20px;
 }
 
-.top-restaurant-btn {
+.btn {
   padding: 10px 20px;
 }
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: "column"
+}
+
+.restro-details {
+  border: 1.5px solid;
+  border-radius: 1.5em;
+}
+
+.restro-details-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.restro-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-container {
+  border: 1px solid;
+  border-radius: 1.5em;
+}
+
+
+

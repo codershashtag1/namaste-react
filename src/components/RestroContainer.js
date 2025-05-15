@@ -6,7 +6,9 @@ const RestroContainer = (props) => {
     name,
     cuisines,
     avgRating,
-    cloudinaryImageId
+    cloudinaryImageId,
+    areaName,
+    locality
   } = resData.card.info;
   
   return (
@@ -18,6 +20,7 @@ const RestroContainer = (props) => {
         <h3>{name}</h3>
         <h4>{avgRating}</h4>
         <h4>{cuisines.join(', ')}</h4>
+        <h4>{areaName}, {locality}</h4>
       </div>
     </div>
   );
