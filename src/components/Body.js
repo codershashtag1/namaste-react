@@ -44,20 +44,17 @@ const Body = () => {
   }
 
   return (
-    <div className="main-container">
-      <div className="sub-content">
-        <div className="title">{resListData[0]?.card?.card?.title}</div>
-        <div className="sub-title">
-        {
-          resListData[0]?.card?.card?.description
-        }
-        </div>
+    <div className="px-10">
+      <div className="pt-10">
+        <div className="text-6xl font-bold py-2">{resListData[0]?.card?.card?.title}</div>
+        <div className="text-4xl font-extralight py-2"> {resListData[0]?.card?.card?.description}</div>
       </div>
       <div className="resto-to-explore">
-        <div className="restaurants">Restaurants to explore</div>
+        <div className="text-2xl font-bold py-2">Restaurants to explore</div>
       </div>
-      <div className = "top-restaurants" >
-        <button className = "btn sub-title" onClick = {() => {
+      <div className="flex gap-5 py-10">
+        <button className = "p-5 bg-green-200 rounded-lg font-semibold border-2 border-green-200"
+        onClick = {() => {
             const topREstaurants = resListData.filter((res) => res.card.card.info?.avgRating >= 4.3);
             // setResListData(topREstaurants);
             setFilteredList(topREstaurants);
@@ -65,7 +62,7 @@ const Body = () => {
         </button>
         <input 
           type = "text"
-          className = "sub-title"
+          className = "border-2 solid border-gray-300 rounded-lg p-2 font-semibold"
           placeholder = "Search for restaurants..."
           value = {searchText}
           onChange = {(e) => {
@@ -75,7 +72,7 @@ const Body = () => {
           }}
         />
       </div>
-      <div className="restro">
+      <div className="flex gap-16 flex-wrap">
         {
           filteredList.map((res) => {
             if (res.card.card.info === undefined) {
