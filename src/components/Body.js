@@ -1,4 +1,4 @@
-import RestroContainer from "./RestroContainer";
+import RestroContainer, { showDiscount } from "./RestroContainer";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router";
@@ -13,6 +13,8 @@ const Body = () => {
   useEffect(() => {
     fetchData()
   }, []);
+
+  const RestaurantShowDisCount = showDiscount(RestroContainer)
 
   const fetchData = async() => {
     try {
@@ -79,8 +81,13 @@ const Body = () => {
               return null; // Skip if info is undefined
             } 
             return (
-              <Link to = {"/restroDetails/" + res.card.card.info.id} key = {res.card.card.info.id} >
-                <RestroContainer key = {res.card.card.info.id} resData = {res.card} />
+              <Link to = {"/restroDetails/" + res.card.card.info.id} key = {res.card.card.info.id}>
+                {
+                  res?.card?.card?.info.aggregatedDiscountInfoV3 != undefined
+                  ? <RestaurantShowDisCount resData = {res?.card} discountOffer = {res?.card?.card?.info?.aggregatedDiscountInfoV3}/> 
+                  : <RestroContainer resData = {res?.card} />
+                }
+                
               </Link>
             );
           })

@@ -9,10 +9,12 @@ const RestroContainer = (props) => {
     cloudinaryImageId,
     areaName,
     locality
-  } = resData.card.info;
+  } = resData?.card?.info || {};
+
+  // console.log(resData?.card?.info?.aggregatedDiscountInfoV3);
   
   return (
-    <div>
+    <div className="w-[400px]">
       <div className="restro-img-container">
       {
         /* transition delay-75 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-gray-500 */ }
@@ -23,11 +25,29 @@ const RestroContainer = (props) => {
       <div className="restro-img-description">
         <h3 className="text-2xl font-bold">{name}</h3>
         <h4 className="text-1xl font-semibold">{avgRating}</h4>
-        <h4 className="text-1xl font-semibold">{cuisines.join(', ')}</h4>
+        <h4 className="text-1xl font-semibold">{cuisines?.join(', ')}</h4>
         <h4 className="text-1xl font-semibold">{areaName}, {locality}</h4>
       </div>
     </div>
   );
 };
+
+export const showDiscount = (RestroContainer) => {
+  return (props) => {
+    const { resData } = props
+    const { header, subHeader } = props?.discountOffer
+
+    // console.log(discountOffer);
+    return (
+      <div className="relative w-fit">
+        {/* Discount badge positioned over the image */}
+        <div className="absolute top-2 text-white px-2 py-1 rounded z-10 text-4xl font-bold shadow">
+          {header} {(subHeader != undefined) ? subHeader : ""}
+        </div>
+        <RestroContainer resData={resData} />
+      </div>
+    );
+  }
+}
 
 export default RestroContainer;

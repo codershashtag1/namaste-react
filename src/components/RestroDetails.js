@@ -1,10 +1,18 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useEffect, useState, useContext } from 'react';
+import { Link, useParams } from 'react-router';
 import usefetchRestroDetails from '../utils/useFetchRestroDetails';
+import SelectedCardDetails from './SelectedCardDetails';
+import AccordianGroupCard from "./AccordianGroupCard"
+import RestaurantDetailContext from '../utils/RestaurantDetailContext';
+
 
 const RestroDetails = () => {
   const { resId } = useParams();
   const restaurantDetails = usefetchRestroDetails(resId);
+  console.log(restaurantDetails);
+  const selectedCardDetails = restaurantDetails[2]?.card?.card?.info;
+  const groupedCards = restaurantDetails[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+
   const {
     id,
     name,
@@ -18,20 +26,21 @@ const RestroDetails = () => {
     totalRatingsString,
     labels,
     avgRatingString
-  } = restaurantDetails;
+  } = selectedCardDetails || {};
 
   return (
-    <div className="restro-details-main-container">
-      <div>
-        Home / {city} / {name}
+    <div className="w-8/12 flex items-start flex-col mx-auto my-10">
+      <div className='my-14'>
+        <Link to="/" className='text-gray-500'>Home</Link>
+        <span className='text-gray-500'> / {city} / <b>{name}</b> </span>
       </div>
-      <div className='restro-sub-title'>
-        <h1>{name}</h1>
-      </div>
-      <div className='restro-details'>
-        <h2>{avgRatingString} {"(" + totalRatingsString + ")"} {costForTwoMessage}</h2>
-        <h3>{cuisines?.join(",")}</h3>
-        <h3>Outlet {locality}</h3>
+      <div className='px-5 w-full'>
+        <RestaurantDetailContext.Provider value={selectedCardDetails}>
+          <SelectedCardDetails />
+        </RestaurantDetailContext.Provider>
+        <RestaurantDetailContext.Provider value={groupedCards}>
+          <AccordianGroupCard />
+        </RestaurantDetailContext.Provider>
       </div>
     </div>
   )
