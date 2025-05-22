@@ -12,7 +12,7 @@ const SelectedCardDetails = () => {
     cuisines,
     areaName
   } = selectedCardDetails || {};
-  console.log(selectedCardDetails);
+  
   return (
     <div className='w-full'>
       <h1 className='text-4xl font-bold'>{name}</h1>

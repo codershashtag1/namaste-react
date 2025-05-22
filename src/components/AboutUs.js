@@ -17,7 +17,6 @@ class AboutUs extends Component {
   } 
 
   render() {
-    console.log("Render Parent");
     return (
       <div className="about-us-container">
         <h1>About Us</h1>

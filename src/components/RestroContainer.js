@@ -10,8 +10,6 @@ const RestroContainer = (props) => {
     areaName,
     locality
   } = resData?.card?.info || {};
-
-  // console.log(resData?.card?.info?.aggregatedDiscountInfoV3);
   
   return (
     <div className="w-[400px]">
@@ -37,7 +35,6 @@ export const showDiscount = (RestroContainer) => {
     const { resData } = props
     const { header, subHeader } = props?.discountOffer
 
-    // console.log(discountOffer);
     return (
       <div className="relative w-fit">
         {/* Discount badge positioned over the image */}

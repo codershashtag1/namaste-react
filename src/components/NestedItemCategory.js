@@ -20,7 +20,7 @@ const NestedItemCategory = (props) => {
                 isLast ? "border-b-[15px]" : "border-b-4"
               }
               showItems = {
-                categoryId === showIndex && props.selectedNestedIndex == true ? true : false
+                categoryId === showIndex && props?.selectedNestedIndex == true ? true : false
               }
               setShowIndex = {
                 () => {

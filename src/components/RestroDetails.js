@@ -9,7 +9,6 @@ import RestaurantDetailContext from '../utils/RestaurantDetailContext';
 const RestroDetails = () => {
   const { resId } = useParams();
   const restaurantDetails = usefetchRestroDetails(resId);
-  console.log(restaurantDetails);
   const selectedCardDetails = restaurantDetails[2]?.card?.card?.info;
   const groupedCards = restaurantDetails[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
 
