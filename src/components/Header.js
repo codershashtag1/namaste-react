@@ -14,6 +14,7 @@ const Header = () => {
       <div className="logo-container">
         <img
           className="w-28"
+          name="logo_img"
           src = {LOGO_URL}
         ></img>
       </div>

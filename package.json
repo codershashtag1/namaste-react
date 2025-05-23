@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "test": "jest",
-    "start": "npx parcel index.html"
+    "start": "npx parcel index.html",
+    "watch-test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -17,15 +18,23 @@
   },
   "homepage": "https://github.com/codershashtag1/namaste-react#readme",
   "dependencies": {
+    "@babel/preset-react": "^7.27.1",
     "@reduxjs/toolkit": "^2.8.2",
+    "@testing-library/jest-dom": "^6.6.3",
     "parcel": "^2.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.2.0",
-    "react-router": "^7.6.0",
-    "react-router-dom": "^7.6.0"
+    "react-router": "^7.6.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.5.3",
     "process": "^0.11.10",
     "tailwindcss": "^3.4.17"
