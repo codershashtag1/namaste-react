@@ -15,23 +15,14 @@ const RestroDetails = () => {
   const {
     id,
     name,
-    areaName,
-    cuisines,
-    costForTwoMessage,
-    avgRating,
-    cloudinaryImageId,
     city,
-    locality,
-    totalRatingsString,
-    labels,
-    avgRatingString
   } = selectedCardDetails || {};
 
   return (
     <div className="w-8/12 flex items-start flex-col mx-auto my-10">
       <div className='my-14'>
         <Link to="/" className='text-gray-500'>Home</Link>
-        <span className='text-gray-500'> / {city} / <b>{name}</b> </span>
+        <span className='text-gray-500'> / {city} / <b data-testid='restro-name'>{name}</b> </span>
       </div>
       <div className='px-5 w-full'>
         <RestaurantDetailContext.Provider value={selectedCardDetails}>

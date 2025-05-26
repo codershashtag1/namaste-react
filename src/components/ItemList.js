@@ -1,10 +1,6 @@
 import { useDispatch } from "react-redux"
-import {
-  addCart
-} from '../utils/cartSlice';
-import {
-  CDN_URL
-} from '../utils/constants';
+import { addCart } from '../utils/cartSlice';
+import { CDN_URL } from '../utils/constants';
 
 
 const ItemList = (props) => {
@@ -16,7 +12,7 @@ const ItemList = (props) => {
   }
 
   return (
-    <div>
+    <div data-testid="item-list">
     {items?.map((item) => {
       const {
         id,
@@ -37,7 +33,7 @@ const ItemList = (props) => {
 
       let priceOfItem = price || defaultPrice
       return (
-        <div key = {id} className = 'flex justify-between border-b-4 py-4'>
+        <div data-testid="item-data" key = {id} className = 'flex justify-between border-b-4 py-4'>
           <div className = 'flex flex-col py-5 w-8/12' >
             <span className='text-3xl font-bold text-gray-600'>{name}</span>
             <span className='text-2xl font-semibold'>₹ {priceOfItem / 100}</span>

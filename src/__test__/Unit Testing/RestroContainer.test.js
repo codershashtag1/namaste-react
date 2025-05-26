@@ -72,7 +72,6 @@ describe("Should Render High Order Component", () => {
 
   it("Should render dicountOffer without header and with subHeader", () => {
     delete clonedMockData.card.info.aggregatedDiscountInfoV3.header
-    console.log(clonedMockData.card.info.aggregatedDiscountInfoV3);
     renderShowDiscount(clonedMockData)
       let discountOffer = screen.getByTestId("discount-offer")
       expect(discountOffer).toHaveTextContent("AT ₹169")
@@ -91,7 +90,6 @@ describe("No props available", () => {
   let clonedMockData = {};
 
   it("should not render name of the restaurant", () => {
-    console.log(clonedMockData);
     renderRestaurantContainer(clonedMockData);
     let name = screen.queryByText(/ /);
     expect(name).not.toBeInTheDocument()

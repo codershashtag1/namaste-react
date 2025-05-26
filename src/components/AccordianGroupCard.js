@@ -11,7 +11,7 @@ const AccordianGroupCard = () => {
   const data = groupCards?.filter((item) => item.card.card["@type"].includes("ItemCategory"))
 
   return (
-    <div className="py-10">
+    <div className="py-10" data-testid="accordian-group-card">
       {
       data?.map((item) => {
         return (item.card.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")

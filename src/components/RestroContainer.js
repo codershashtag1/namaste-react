@@ -13,7 +13,7 @@ const RestroContainer = (props) => {
   } = resData?.card?.info || {};
   
   return (
-    <div className="w-[400px]">
+    <div className="w-[400px]" data-testid="rest-data">
       <div className="restro-img-container">
       {
         /* transition delay-75 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-gray-500 */ }

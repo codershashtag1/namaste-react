@@ -6,7 +6,7 @@ const NestedItemCategory = (props) => {
   const [showIndex, setShowIndex] = useState(0);
 
   return (
-      <div className = "py-4 flex flex-col justify-between" >
+      <div data-testid="nested-item-category" className = "py-4 flex flex-col justify-between" >
         <span className="text-3xl pb-4 font-bold">{title}</span>
         {
           categories?.map((item) => {

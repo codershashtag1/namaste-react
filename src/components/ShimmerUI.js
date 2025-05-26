@@ -1,6 +1,15 @@
 const ShimmerUI = () => {
   return (
-    <div className="shimmer-container" style={{ display: "flex", flexWrap: "wrap", gap: "16px", padding: "16px" }}>
+    <div data-testid = "shimmer-ui"
+    className = "shimmer-container"
+    style = {
+      {
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "16px",
+        padding: "16px"
+      }
+    } >
       {[...Array(12)].map((_, i) => (
         <div
           key={i}

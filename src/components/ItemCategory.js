@@ -9,7 +9,7 @@ const ItemCategory = (props) => {
   }
 
   return (
-    <div className = {`py-4 flex flex-col cursor-pointer ${border}`} key = {categoryId} >
+    <div data-testid="item-category" className = {`py-4 flex flex-col cursor-pointer ${border}`} key = {categoryId} >
       <div className = "flex justify-between" >
         <span className="text-3xl font-bold">{title} ({itemCards?.length})</span>
         <span className="text-2xl text-gray-300" onClick={handleToggle}>⬇️</span>

@@ -17,7 +17,7 @@ const Body = () => {
   const RestaurantShowDisCount = showDiscount(RestroContainer)
 
   const fetchData = async() => {
-    try {
+    // try {
       const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.262958&lng=73.17849&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null")
 
       const jsonData = await data.json();
@@ -25,15 +25,15 @@ const Body = () => {
         setResListData(jsonData?.data?.cards)
         setFilteredList(jsonData?.data?.cards)
       }
-    } catch(err) {
-      console.log(err);
-    }
+    // } catch(err) {
+    //   console.error(err);
+    // }
   }
 
 
   if(onlineStatus === false) {
     return (
-      <div className="offline-container">
+      <div data-testid = "offline-container" className = "offline-container" >
         <h1>Looks like you are offline</h1>
       </div>
     )
@@ -64,6 +64,7 @@ const Body = () => {
         </button>
         <input 
           type = "text"
+          data-testid = "search-restro"
           className = "border-2 solid border-gray-300 rounded-lg p-2 font-semibold"
           placeholder = "Search for restaurants..."
           value = {searchText}

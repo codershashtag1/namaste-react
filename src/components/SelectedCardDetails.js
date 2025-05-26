@@ -14,7 +14,7 @@ const SelectedCardDetails = () => {
   } = selectedCardDetails || {};
   
   return (
-    <div className='w-full'>
+    <div className='w-full' data-testid='selected-card-details'>
       <h1 className='text-4xl font-bold'>{name}</h1>
       <div className = 'border-[15px] border-gray-300 rounded-xl rounded-tr-2xl p-4 mt-4 shadow-2xl opacity-90 w-full'>
         <h2 className='text-2xl font-bold'>❇️ {avgRating} ({totalRatingsString}) {costForTwoMessage}</h2>
